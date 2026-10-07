@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>In-Page FAQ Example - Toolbox</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
+            color: white;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            background-color: #0b5ed7;
+            transform: translateY(-4px);
+            box-shadow: 0 6px 16px rgba(13, 110, 253, 0.4);
+        }
+
+        @media (max-width: 576px) {
+            .back-to-top {
+                bottom: 30px;
+                right: 30px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+
+        /* Content styling */
+        .content-section {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .content-section h2 {
+            margin-top: 0;
+            color: #0d6efd;
+            border-bottom: 3px solid #0d6efd;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .content-section p {
+            line-height: 1.8;
+            color: #495057;
+            margin-bottom: 20px;
+        }
+
+        /* FAQ Styles */
+        .faq-section {
+            margin-top: 30px;
+        }
+
+        .faq-section h3 {
+            font-size: 1.25rem;
+            color: #0d6efd;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Details/Summary styling for native accordion */
+        details {
+            margin-bottom: 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        details[open] {
+            background-color: #f8f9fa;
+            border-color: #0d6efd;
+        }
+
+        summary {
+            padding: 18px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #212529;
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background-color 0.2s ease;
+        }
+
+        summary:hover {
+            background-color: #f8f9fa;
+        }
+
+        details[open] summary {
+            background-color: #f8f9fa;
+            color: #0d6efd;
+            border-bottom: 2px solid #0d6efd;
+        }
+
+        /* Arrow indicator */
+        summary::after {
+            content: "▼";
+            display: inline-block;
+            margin-left: auto;
+            transition: transform 0.3s ease;
+            font-size: 0.75rem;
+            color: #0d6efd;
+        }
+
+        details[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        /* FAQ answer content */
+        .faq-answer {
+            padding: 20px;
+            color: #495057;
+            line-height: 1.8;
+        }
+
+        .faq-answer p {
+            margin-bottom: 15px;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-answer ul {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .faq-answer li {
+            margin-bottom: 8px;
+        }
+
+        /* Visual separator for FAQ groups */
+        .faq-group {
+            margin-bottom: 30px;
+        }
+
+        .faq-group h4 {
+            font-size: 1.1rem;
+            color: #212529;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Page Top Anchor -->
+    <a id="page-top"></a>
+
+    <div class="container py-5">
+        <!-- Hero Section -->
+        <div class="hero-section">
+            <h1 class="mb-3">❓ In-Page FAQ Component</h1>
+            <p class="lead mb-0">Collapsible FAQ sections embedded directly where users need them</p>
+        </div>
+
+        <!-- Content Sections -->
+        <div class="content-section">
+            <h2>Why In-Page FAQ?</h2>
+            <p>
+                Users visiting your website are looking for answers to specific questions related to the content they're currently viewing. Directing them to a separate FAQ page interrupts their experience and often means they won't find the answer they need. By embedding FAQ sections directly on relevant pages, you provide context-specific information exactly where users expect it.
+            </p>
+            <p>
+                This approach improves user satisfaction, reduces bounce rates, and decreases support ticket volume. Users can quickly find answers without leaving the page they're currently on. It also improves SEO by keeping users engaged longer and providing more comprehensive, topic-relevant content on each page.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Product Features & FAQ</h2>
+            <p>
+                Below is an example of how FAQ content can be integrated with product or feature information. Users reading about a product can immediately find answers to common questions without navigating away.
+            </p>
+
+            <!-- FAQ Section Example -->
+            <div class="faq-section">
+                <h3>Frequently Asked Questions</h3>
+
+                <div class="faq-group">
+                    <h4>General Questions</h4>
+
+                    <details>
+                        <summary>What is this product and who is it for?</summary>
+                        <div class="faq-answer">
+                            <p>This product is designed for organizations looking to improve their user experience through better information architecture. It's suitable for teams of any size, from small startups to large enterprises, that want to provide more relevant and accessible content to their users.</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>How does in-page FAQ improve user experience?</summary>
+                        <div class="faq-answer">
+                            <p>In-page FAQ sections provide several key benefits:</p>
+                            <ul>
+                                <li>Users find answers without leaving the current page</li>
+                                <li>Content is presented in context, making it more relevant</li>
+                                <li>Reduces cognitive load by keeping information localized</li>
+                                <li>Improves accessibility for users seeking quick answers</li>
+                                <li>Decreases dependency on separate support resources</li>
+                            </ul>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Can I customize the appearance of FAQ sections?</summary>
+                        <div class="faq-answer">
+                            <p>Absolutely! The component uses standard HTML5 details and summary elements styled with CSS. You can customize colors, spacing, fonts, animations, and layout to match your brand guidelines. All styling can be modified without requiring JavaScript or external dependencies.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-group">
+                    <h4>Technical Implementation</h4>
+
+                    <details>
+                        <summary>Does this require JavaScript?</summary>
+                        <div class="faq-answer">
+                            <p>No! This component uses native HTML5 <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements, which provide built-in expand/collapse functionality. All animations and styling are handled with CSS. This makes it perfect for CMS environments like AEM where JavaScript is discouraged.</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>What browser support does this have?</summary>
+                        <div class="faq-answer">
+                            <p>HTML5 details and summary elements are supported in all modern browsers including Chrome, Firefox, Safari, Edge, and newer versions of Internet Explorer. For older browsers, the FAQ items simply display as expanded text, maintaining full functionality and accessibility without any JavaScript fallback needed.</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>How do I implement this in my CMS?</summary>
+                        <div class="faq-answer">
+                            <p>Implementation is straightforward. Create a content template that includes:</p>
+                            <ul>
+                                <li>A section marked for FAQ content</li>
+                                <li>Individual fields for question and answer text</li>
+                                <li>Optional grouping fields for organizing related questions</li>
+                                <li>CSS styling rules for the details/summary elements</li>
+                            </ul>
+                            <p>Content authors can then simply fill in questions and answers, and the markup is automatically generated by your CMS template.</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Can I add rich content like images or lists?</summary>
+                        <div class="faq-answer">
+                            <p>Yes! The answer section supports any HTML content you need, including paragraphs, lists, links, images, tables, and more. You can create complex, richly formatted answers while maintaining the collapsible interface.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="faq-group">
+                    <h4>Best Practices</h4>
+
+                    <details>
+                        <summary>How many FAQ items should I include per page?</summary>
+                        <div class="faq-answer">
+                            <p>There's no strict limit, but aim for 5-10 questions per section to maintain readability. If you have more questions, consider grouping them into multiple FAQ sections with descriptive headings. This helps users quickly find the category they're interested in without overwhelming them with too many options at once.</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Should FAQ content appear at the top or bottom of a page?</summary>
+                        <div class="faq-answer">
+                            <p>Placement depends on your page content and user behavior. For product pages, place FAQ near the end to address concerns after users have learned about features. For support pages, place it higher up since users are primarily seeking answers. Monitor user behavior and adjust placement based on where users typically scroll.</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>How should I word FAQ questions?</summary>
+                        <div class="faq-answer">
+                            <p>Write questions as users would ask them, often starting with "How," "What," or "Can." Make questions specific and clear. Avoid generic questions like "General Information" and instead use descriptive questions that clearly indicate what the answer covers. This helps users quickly identify relevant answers.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <h2>Implementation Details</h2>
+            <p>
+                The HTML5 <code>&lt;details&gt;</code> and <code>&lt;summary&gt;</code> elements provide native expand/collapse functionality without any JavaScript. The <code>&lt;summary&gt;</code> acts as the clickable question, while the content within <code>&lt;details&gt;</code> is the answer that expands when clicked.
+            </p>
+            <p>
+                CSS styling handles all visual presentation, including colors, spacing, borders, and the animated arrow indicator. The component degrades gracefully in older browsers—users simply see expanded text that they can read, maintaining full accessibility and functionality.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>SEO & Content Benefits</h2>
+            <p>
+                In-page FAQ sections provide rich content that helps search engines understand your page better. Structured FAQ content sends signals to search engines about the topics covered on your page, potentially improving rankings for related queries. Additionally, users spending more time on your page reading FAQ content signals to search engines that your content is valuable and relevant.
+            </p>
+            <p>
+                From a content strategy perspective, FAQ sections allow you to address user questions and concerns directly on the page where they're most relevant. This reduces the need for multiple support documents and ensures users find consistent, authoritative information.
+            </p>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#page-top" class="back-to-top" title="Back to top" aria-label="Back to top">↑</a>
+
+</body>
+</html>
