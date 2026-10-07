@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dual Navigation Pattern - Toolbox</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            line-height: 1.8;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #0d6efd 0%, #0dcaf0 100%);
+            color: white;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background-color: #0d6efd;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+            transition: all 0.3s ease;
+            z-index: 99;
+        }
+
+        .back-to-top:hover {
+            background-color: #0b5ed7;
+            transform: translateY(-4px);
+        }
+
+        @media (max-width: 576px) {
+            .back-to-top {
+                bottom: 30px;
+                right: 30px;
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+        }
+
+        .content-wrapper {
+            background: white;
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr 320px;
+            gap: 40px;
+        }
+
+        @media (max-width: 1024px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* SUBWAY PATTERN STYLES */
+        .subway-nav {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .subway-nav h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #212529;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #0d6efd;
+        }
+
+        .subway-step {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+
+        .subway-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .subway-step::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            background: white;
+            border: 2px solid #dee2e6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #6c757d;
+            position: relative;
+            top: 2px;
+        }
+
+        .subway-step.active::before {
+            background: #0d6efd;
+            border-color: #0d6efd;
+            color: white;
+        }
+
+        .subway-step-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .subway-step-content a {
+            display: block;
+            font-size: 0.9rem;
+            color: #0d6efd;
+            text-decoration: none;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+
+        .subway-step.active .subway-step-content a {
+            font-weight: 600;
+            color: #0b5ed7;
+        }
+
+        .subway-step-content p {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        /* RELATED TOPICS PATTERN STYLES */
+        .related-topics {
+            background: #fff8f0;
+            border: 1px solid #f0d5c3;
+            border-radius: 6px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .related-topics h3 {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #212529;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #ff6b35;
+        }
+
+        .related-topic-item {
+            padding: 12px;
+            margin-bottom: 10px;
+            background: white;
+            border-left: 3px solid #ff6b35;
+            border-radius: 3px;
+            transition: all 0.2s ease;
+        }
+
+        .related-topic-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .related-topic-item:hover {
+            background: #fffbf8;
+            border-left-color: #cc5228;
+            transform: translateX(4px);
+        }
+
+        .related-topic-item a {
+            display: block;
+            font-size: 0.9rem;
+            color: #0d6efd;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .related-topic-item a:hover {
+            text-decoration: underline;
+        }
+
+        .related-topic-category {
+            font-size: 0.75rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin: 0;
+        }
+
+        /* MAIN CONTENT */
+        h2 {
+            color: #212529;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            scroll-margin-top: 20px;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #212529;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #495057;
+            margin-bottom: 18px;
+        }
+
+        ul {
+            margin-bottom: 18px;
+            margin-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            color: #495057;
+        }
+
+        .content-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e9ecef, transparent);
+            margin: 40px 0;
+            border: none;
+        }
+
+        strong {
+            color: #212529;
+            font-weight: 600;
+        }
+
+        a {
+            color: #0d6efd;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            border-bottom-color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+    <a id="page-top"></a>
+
+    <div class="container py-5">
+        <div class="hero-section">
+            <h1 class="mb-3">🛣️ Dual Navigation Pattern</h1>
+            <p class="lead mb-0">Combining process flows (subway) with topic exploration (related content)</p>
+        </div>
+
+        <div class="content-wrapper">
+            <main>
+                <h2>Social Insurance Number (SIN)</h2>
+                <p>
+                    A Social Insurance Number (SIN) is a nine-digit number that you need to work in Canada or to receive benefits from the Government of Canada. This page is part of the "Setting up a new employee" process, but it's also a topic that relates to many other tax and benefits topics.
+                </p>
+
+                <h3>Why you need a SIN</h3>
+                <p>You need a SIN to:</p>
+                <ul>
+                    <li>Work in Canada</li>
+                    <li>Open a bank account</li>
+                    <li>Apply for a loan or credit card</li>
+                    <li>Apply for government benefits</li>
+                    <li>Report income and file income taxes</li>
+                </ul>
+
+                <hr class="content-divider">
+
+                <h2>How to get a SIN</h2>
+                <p>
+                    If you are a Canadian citizen, permanent resident, or refugee, you can apply for a SIN. To apply, you will need to:
+                </p>
+                <ul>
+                    <li>Complete the Application for a Social Insurance Number form</li>
+                    <li>Provide proof of identity and residency in Canada</li>
+                    <li>Submit your application in person at a Service Canada office or by mail</li>
+                </ul>
+
+                <h3>Types of SINs</h3>
+                <p>There are different types of SINs depending on your status in Canada:</p>
+                <ul>
+                    <li><strong>Regular SIN:</strong> For Canadian citizens and permanent residents</li>
+                    <li><strong>Temporary SIN:</strong> For foreign workers and international students</li>
+                </ul>
+
+                <hr class="content-divider">
+
+                <h2>Employer Responsibilities</h2>
+                <p>
+                    As an employer, you must request a SIN from each employee. This information is essential for payroll processing and tax reporting.
+                </p>
+
+                <h3>Requesting from Employees</h3>
+                <p>
+                    You must request a SIN from each employee before or when they start working. Once collected, you must keep it confidential and store it securely.
+                </p>
+            </main>
+
+            <!-- RIGHT SIDEBAR -->
+            <aside class="sidebar">
+                <!-- SUBWAY PATTERN - Process Steps -->
+                <nav class="subway-nav">
+                    <h3>Steps in this process</h3>
+                    
+                    <div class="subway-step">
+                        <div class="subway-step-content">
+                            <a href="#">Step 1: Verify employment authorization</a>
+                            <p>Confirm the employee is authorized to work in Canada</p>
+                        </div>
+                    </div>
+
+                    <div class="subway-step active">
+                        <div class="subway-step-content">
+                            <a href="#">Step 2: Obtain SIN</a>
+                            <p>Request and collect Social Insurance Number</p>
+                        </div>
+                    </div>
+
+                    <div class="subway-step">
+                        <div class="subway-step-content">
+                            <a href="#">Step 3: Set up payroll</a>
+                            <p>Configure payroll system and deductions</p>
+                        </div>
+                    </div>
+
+                    <div class="subway-step">
+                        <div class="subway-step-content">
+                            <a href="#">Step 4: Issue initial pay</a>
+                            <p>Process first payment and issue pay stub</p>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- RELATED TOPICS PATTERN - Topic Exploration -->
+                <nav class="related-topics">
+                    <h3>Related topics</h3>
+                    
+                    <div class="related-topic-item">
+                        <a href="#">Employment Insurance (EI)</a>
+                        <p class="related-topic-category">Benefits</p>
+                    </div>
+
+                    <div class="related-topic-item">
+                        <a href="#">Canada Pension Plan (CPP)</a>
+                        <p class="related-topic-category">Benefits</p>
+                    </div>
+
+                    <div class="related-topic-item">
+                        <a href="#">Record of employment</a>
+                        <p class="related-topic-category">Documentation</p>
+                    </div>
+
+                    <div class="related-topic-item">
+                        <a href="#">Payroll deductions</a>
+                        <p class="related-topic-category">Payroll</p>
+                    </div>
+
+                    <div class="related-topic-item">
+                        <a href="#">T4 slip requirements</a>
+                        <p class="related-topic-category">Reporting</p>
+                    </div>
+                </nav>
+            </aside>
+        </div>
+    </div>
+
+    <a href="#page-top" class="back-to-top" title="Back to top" aria-label="Back to top">↑</a>
+</body>
+</html>
