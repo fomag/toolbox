@@ -83,13 +83,13 @@
         .on-this-page.top-position {
             position: relative;
             margin-bottom: 30px;
+            width: 100%;
         }
 
-        /* Scrolled state - fixed right sidebar */
+        /* Scrolled state - sticky right sidebar */
         .on-this-page.right-position {
             position: fixed;
             top: 20px;
-            right: 20px;
             width: 280px;
             z-index: 100;
         }
@@ -218,7 +218,6 @@
         @media (max-width: 1200px) {
             .on-this-page.right-position {
                 width: 250px;
-                right: 10px;
             }
         }
 
@@ -363,18 +362,19 @@
                     </p>
                     <ul>
                         <li>Two CSS class states: one for top positioning, one for right-side positioning</li>
-                        <li>Fixed positioning with z-index for the right-side state</li>
+                        <li>Fixed positioning with calculated right value to stay within container</li>
                         <li>Smooth transitions between states</li>
                         <li>Responsive design to hide on smaller screens when fixed</li>
                     </ul>
 
                     <h3>JavaScript Requirements</h3>
                     <p>
-                        Minimal JavaScript is needed to toggle between positioning states. The script:
+                        Minimal JavaScript is needed to toggle between positioning states and calculate the proper right offset. The script:
                     </p>
                     <ul>
                         <li>Listens for scroll events</li>
                         <li>Determines when to switch between top and right positioning</li>
+                        <li>Calculates the correct right offset based on container position</li>
                         <li>Toggles CSS classes to apply the appropriate styling</li>
                         <li>Tracks the currently active section for highlighting</li>
                     </ul>
@@ -389,6 +389,7 @@
                         <li><strong>Use clear, descriptive h2 headings:</strong> The navigation is only useful if headings accurately describe section content</li>
                         <li><strong>Limit sections:</strong> Aim for 5-10 main sections to avoid overwhelming the navigation</li>
                         <li><strong>Smart positioning:</strong> Start at the top for immediate visibility, move to the side when scrolling begins</li>
+                        <li><strong>Container-aware:</strong> Keep the navigation within container bounds, not floating outside</li>
                         <li><strong>Responsive behavior:</strong> Hide the fixed version on mobile to preserve screen space</li>
                         <li><strong>Accessibility:</strong> Use semantic HTML headings and proper link anchors</li>
                         <li><strong>Visual feedback:</strong> Highlight the current section to help users orient themselves</li>
@@ -409,8 +410,8 @@
         let isFixed = false;
 
         // Handle scroll positioning
-        window.addEventListener('scroll', () => {
-            if (!onThisPageNav) return;
+        function handleScroll() {
+            if (!onThisPageNav || !contentWrapper) return;
 
             const contentTop = contentWrapper.offsetTop;
             const scrollPosition = window.scrollY;
@@ -419,6 +420,7 @@
             if (scrollPosition > contentTop && !isFixed) {
                 onThisPageNav.classList.remove('top-position');
                 onThisPageNav.classList.add('right-position');
+                updateNavPosition();
                 isFixed = true;
             }
             // Switch back to top position if user scrolls back up
@@ -430,6 +432,22 @@
 
             // Update active link based on scroll position
             updateActiveLink();
+        }
+
+        // Calculate and update the right position to keep nav in container
+        function updateNavPosition() {
+            const containerRect = contentWrapper.getBoundingClientRect();
+            const navWidth = 280; // Should match CSS width
+            const rightOffset = window.innerWidth - containerRect.right + 20;
+            
+            onThisPageNav.style.right = rightOffset + 'px';
+        }
+
+        // Recalculate position on window resize
+        window.addEventListener('resize', () => {
+            if (isFixed) {
+                updateNavPosition();
+            }
         });
 
         // Track which section is currently in view
@@ -451,6 +469,9 @@
                 }
             });
         }
+
+        // Listen for scroll events
+        window.addEventListener('scroll', handleScroll);
 
         // Initialize on page load
         updateActiveLink();
