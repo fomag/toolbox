@@ -63,22 +63,16 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
-        /* Page layout with sidebar */
-        .page-with-sidebar {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 40px;
-        }
-
         /* Floating "On This Page" Navigation */
         .on-this-page {
             position: sticky;
             top: 20px;
             height: fit-content;
-            background: white;
+            background: #f8f9fa;
             border: 1px solid #e0e0e0;
             border-radius: 6px;
             padding: 20px;
+            margin-bottom: 30px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
@@ -123,18 +117,6 @@
             font-weight: 600;
             color: #0b5ed7;
             border-left-color: #0b5ed7;
-        }
-
-        /* Responsive - stack on mobile */
-        @media (max-width: 1024px) {
-            .page-with-sidebar {
-                grid-template-columns: 1fr;
-            }
-
-            .on-this-page {
-                position: static;
-                margin-bottom: 40px;
-            }
         }
 
         /* Typography */
@@ -223,169 +205,157 @@
         <!-- Hero Section -->
         <div class="hero-section">
             <h1 class="mb-3">📌 Floating "On This Page" Navigation</h1>
-            <p class="lead mb-0">Sticky sidebar navigation that follows users as they scroll through page content</p>
+            <p class="lead mb-0">Sticky navigation that follows users as they scroll through page content</p>
         </div>
 
-        <!-- Main Content with Sidebar -->
+        <!-- Main Content -->
         <div class="content-wrapper">
-            <div class="page-with-sidebar">
-                <!-- Main Content -->
-                <main>
-                    <h2 id="about-this-component">About This Component</h2>
-                    <p>
-                        The "On This Page" navigation component provides users with a quick way to jump to specific sections on a long-form page. As users scroll, this sticky sidebar follows them, always keeping the page structure visible and accessible. This component is particularly useful for pages with multiple sections, as it helps users understand the page structure and navigate efficiently.
-                    </p>
-                    <p>
-                        This example uses real content from the Canada Revenue Agency website to demonstrate how the component works in a real-world scenario. The sidebar automatically highlights the section the user is currently viewing, providing visual feedback about their position on the page.
-                    </p>
+            <!-- Sidebar Navigation -->
+            <nav class="on-this-page">
+                <h3>On this page</h3>
+                <ul>
+                    <li><a href="#about-this-component">About This Component</a></li>
+                    <li><a href="#social-insurance-number">Social Insurance Number</a></li>
+                    <li><a href="#employer-responsibilities">Employer Responsibilities</a></li>
+                    <li><a href="#technical-implementation">Technical Implementation</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                </ul>
+            </nav>
 
-                    <hr class="content-divider">
+            <!-- Main Content -->
+            <main>
+                <h2 id="about-this-component">About This Component</h2>
+                <p>
+                    The "On This Page" navigation component provides users with a quick way to jump to specific sections on a long-form page. As users scroll, this sticky navigation at the top follows them, always keeping the page structure visible and accessible. This component is particularly useful for pages with multiple sections, as it helps users understand the page structure and navigate efficiently.
+                </p>
+                <p>
+                    This example uses real content from the Canada Revenue Agency website to demonstrate how the component works in a real-world scenario. The navigation automatically highlights the section the user is currently viewing, providing visual feedback about their position on the page.
+                </p>
 
-                    <h2 id="social-insurance-number">Social Insurance Number (SIN)</h2>
-                    <p>
-                        A Social Insurance Number (SIN) is a nine-digit number that you need to work in Canada or to receive benefits from the Government of Canada. It is issued by Employment and Social Development Canada (ESDC). Your SIN is confidential and you should never share it unnecessarily.
-                    </p>
+                <hr class="content-divider">
 
-                    <h3 id="why-you-need-sin">Why you need a SIN</h3>
-                    <p>
-                        You need a SIN to:
-                    </p>
-                    <ul>
-                        <li>Work in Canada</li>
-                        <li>Open a bank account</li>
-                        <li>Apply for a loan or credit card</li>
-                        <li>Apply for government benefits</li>
-                        <li>Report income and file income taxes</li>
-                        <li>Register for the Canada Pension Plan (CPP)</li>
-                        <li>Register for Employment Insurance (EI)</li>
-                    </ul>
+                <h2 id="social-insurance-number">Social Insurance Number (SIN)</h2>
+                <p>
+                    A Social Insurance Number (SIN) is a nine-digit number that you need to work in Canada or to receive benefits from the Government of Canada. It is issued by Employment and Social Development Canada (ESDC). Your SIN is confidential and you should never share it unnecessarily.
+                </p>
 
-                    <h3 id="how-to-get-sin">How to get a SIN</h3>
-                    <p>
-                        If you are a Canadian citizen, permanent resident, or refugee, you can apply for a SIN. To apply, you will need to:
-                    </p>
-                    <ul>
-                        <li>Complete the Application for a Social Insurance Number form (Form SIN Application)</li>
-                        <li>Provide proof of identity and residency in Canada</li>
-                        <li>Submit your application in person at a Service Canada office or by mail</li>
-                    </ul>
+                <h3>Why you need a SIN</h3>
+                <p>
+                    You need a SIN to:
+                </p>
+                <ul>
+                    <li>Work in Canada</li>
+                    <li>Open a bank account</li>
+                    <li>Apply for a loan or credit card</li>
+                    <li>Apply for government benefits</li>
+                    <li>Report income and file income taxes</li>
+                    <li>Register for the Canada Pension Plan (CPP)</li>
+                    <li>Register for Employment Insurance (EI)</li>
+                </ul>
 
-                    <h3 id="types-of-sins">Types of SINs</h3>
-                    <p>
-                        There are different types of SINs depending on your status in Canada:
-                    </p>
-                    <ul>
-                        <li><strong>Regular SIN:</strong> Issued to Canadian citizens and permanent residents who are authorized to work in Canada</li>
-                        <li><strong>Temporary SIN:</strong> Issued to foreign workers and international students who are authorized to work or study in Canada</li>
-                    </ul>
+                <h3>How to get a SIN</h3>
+                <p>
+                    If you are a Canadian citizen, permanent resident, or refugee, you can apply for a SIN. To apply, you will need to:
+                </p>
+                <ul>
+                    <li>Complete the Application for a Social Insurance Number form (Form SIN Application)</li>
+                    <li>Provide proof of identity and residency in Canada</li>
+                    <li>Submit your application in person at a Service Canada office or by mail</li>
+                </ul>
 
-                    <h3 id="protect-your-sin">Protecting Your SIN</h3>
-                    <p>
-                        Your SIN is sensitive personal information. You should protect it from theft or misuse by:
-                    </p>
-                    <ul>
-                        <li>Never sharing it unless absolutely necessary</li>
-                        <li>Not writing it on cheques or postcards</li>
-                        <li>Safely storing documents that contain your SIN</li>
-                        <li>Shredding documents before discarding them</li>
-                        <li>Being cautious of phishing emails or calls requesting your SIN</li>
-                    </ul>
+                <h3>Types of SINs</h3>
+                <p>
+                    There are different types of SINs depending on your status in Canada:
+                </p>
+                <ul>
+                    <li><strong>Regular SIN:</strong> Issued to Canadian citizens and permanent residents who are authorized to work in Canada</li>
+                    <li><strong>Temporary SIN:</strong> Issued to foreign workers and international students who are authorized to work or study in Canada</li>
+                </ul>
 
-                    <hr class="content-divider">
+                <h3>Protecting Your SIN</h3>
+                <p>
+                    Your SIN is sensitive personal information. You should protect it from theft or misuse by:
+                </p>
+                <ul>
+                    <li>Never sharing it unless absolutely necessary</li>
+                    <li>Not writing it on cheques or postcards</li>
+                    <li>Safely storing documents that contain your SIN</li>
+                    <li>Shredding documents before discarding them</li>
+                    <li>Being cautious of phishing emails or calls requesting your SIN</li>
+                </ul>
 
-                    <h2 id="employer-responsibilities">Employer Responsibilities</h2>
-                    <p>
-                        As an employer, you must request a SIN from each employee. You need the SIN to:
-                    </p>
-                    <ul>
-                        <li>Deduct income tax, Employment Insurance (EI), and Canada Pension Plan (CPP) contributions</li>
-                        <li>Report employment income to the Canada Revenue Agency</li>
-                        <li>Issue a T4 slip at the end of the year</li>
-                    </ul>
+                <hr class="content-divider">
 
-                    <h3 id="requesting-sin-from-employee">Requesting a SIN from an Employee</h3>
-                    <p>
-                        You must request a SIN from each employee before or when they start working. You can request this information on an application form or other document. Once you have collected the SIN, you must:
-                    </p>
-                    <ul>
-                        <li>Keep it confidential</li>
-                        <li>Store it securely</li>
-                        <li>Only use it for employment-related purposes</li>
-                        <li>Protect it from unauthorized access</li>
-                    </ul>
+                <h2 id="employer-responsibilities">Employer Responsibilities</h2>
+                <p>
+                    As an employer, you must request a SIN from each employee. You need the SIN to:
+                </p>
+                <ul>
+                    <li>Deduct income tax, Employment Insurance (EI), and Canada Pension Plan (CPP) contributions</li>
+                    <li>Report employment income to the Canada Revenue Agency</li>
+                    <li>Issue a T4 slip at the end of the year</li>
+                </ul>
 
-                    <h3 id="sin-verification">Verifying a SIN</h3>
-                    <p>
-                        You can verify that a SIN is valid using the Social Insurance Number Validation application. This service allows you to confirm that an individual's SIN matches their name and date of birth. Note that this service does not confirm employment authorization.
-                    </p>
+                <h3>Requesting a SIN from an Employee</h3>
+                <p>
+                    You must request a SIN from each employee before or when they start working. You can request this information on an application form or other document. Once you have collected the SIN, you must:
+                </p>
+                <ul>
+                    <li>Keep it confidential</li>
+                    <li>Store it securely</li>
+                    <li>Only use it for employment-related purposes</li>
+                    <li>Protect it from unauthorized access</li>
+                </ul>
 
-                    <hr class="content-divider">
+                <h3>Verifying a SIN</h3>
+                <p>
+                    You can verify that a SIN is valid using the Social Insurance Number Validation application. This service allows you to confirm that an individual's SIN matches their name and date of birth. Note that this service does not confirm employment authorization.
+                </p>
 
-                    <h2 id="technical-implementation">Technical Implementation</h2>
-                    <p>
-                        This floating navigation component uses pure CSS sticky positioning combined with HTML anchor links. No JavaScript is required for the basic functionality—the sidebar stays fixed as users scroll, and clicking links jumps to the corresponding section.
-                    </p>
+                <hr class="content-divider">
 
-                    <h3 id="how-it-works">How It Works</h3>
-                    <p>
-                        The component uses the CSS <code>position: sticky</code> property to keep the sidebar visible as users scroll. Each link in the sidebar points to an ID on the page using standard anchor navigation. The <code>scroll-margin-top</code> property ensures sections scroll into view with appropriate spacing.
-                    </p>
+                <h2 id="technical-implementation">Technical Implementation</h2>
+                <p>
+                    This floating navigation component uses pure CSS sticky positioning combined with HTML anchor links. No JavaScript is required for the basic functionality—the navigation stays fixed as users scroll, and clicking links jumps to the corresponding section.
+                </p>
 
-                    <h3 id="css-requirements">CSS Requirements</h3>
-                    <p>
-                        To implement this component, you only need:
-                    </p>
-                    <ul>
-                        <li>CSS Grid or Flexbox for layout</li>
-                        <li><code>position: sticky</code> for the sidebar</li>
-                        <li><code>scroll-margin-top</code> on headings for proper scroll offset</li>
-                        <li>Simple hover and active states for links</li>
-                    </ul>
+                <h3>How It Works</h3>
+                <p>
+                    The component uses the CSS <code>position: sticky</code> property to keep the navigation visible as users scroll. Each link in the navigation points to an ID on the page using standard anchor navigation. The <code>scroll-margin-top</code> property ensures sections scroll into view with appropriate spacing.
+                </p>
 
-                    <h3 id="responsive-design">Responsive Design</h3>
-                    <p>
-                        On smaller screens, the sidebar is hidden or moved above the main content. Media queries ensure the layout adapts gracefully to different screen sizes. At tablet sizes and below, the navigation becomes a stacked layout, and the sticky positioning is disabled to save screen space.
-                    </p>
+                <h3>CSS Requirements</h3>
+                <p>
+                    To implement this component, you only need:
+                </p>
+                <ul>
+                    <li>CSS sticky positioning for the navigation</li>
+                    <li><code>scroll-margin-top</code> on headings for proper scroll offset</li>
+                    <li>Simple hover and active states for links</li>
+                    <li>A simple unordered list with anchor links</li>
+                </ul>
 
-                    <hr class="content-divider">
+                <h3>H2-Only Navigation</h3>
+                <p>
+                    This component only displays h2 headings in the "On this page" navigation, keeping the navigation clean and focused. Subsections (h3 and beyond) are not included, making the navigation easier to scan and less cluttered. This approach is ideal for pages with clear section hierarchies.
+                </p>
 
-                    <h2 id="best-practices">Best Practices</h2>
-                    <p>
-                        When implementing a floating "On This Page" navigation, consider these guidelines:
-                    </p>
-                    <ul>
-                        <li><strong>Use clear, descriptive headings:</strong> The navigation is only useful if headings accurately describe section content</li>
-                        <li><strong>Limit sections:</strong> Too many links make the navigation overwhelming; aim for 5-12 main sections</li>
-                        <li><strong>Consistent styling:</strong> Use your site's existing design system to maintain visual consistency</li>
-                        <li><strong>Mobile consideration:</strong> Ensure the navigation doesn't interfere with mobile navigation on small screens</li>
-                        <li><strong>Accessibility:</strong> Use semantic HTML headings (h2, h3) and proper link anchors</li>
-                        <li><strong>Visual feedback:</strong> Highlight the current section to help users orient themselves</li>
-                    </ul>
-                </main>
+                <hr class="content-divider">
 
-                <!-- Sidebar Navigation -->
-                <aside>
-                    <nav class="on-this-page">
-                        <h3>On this page</h3>
-                        <ul>
-                            <li><a href="#about-this-component">About This Component</a></li>
-                            <li><a href="#social-insurance-number">Social Insurance Number</a></li>
-                            <li><a href="#why-you-need-sin">Why you need a SIN</a></li>
-                            <li><a href="#how-to-get-sin">How to get a SIN</a></li>
-                            <li><a href="#types-of-sins">Types of SINs</a></li>
-                            <li><a href="#protect-your-sin">Protecting Your SIN</a></li>
-                            <li><a href="#employer-responsibilities">Employer Responsibilities</a></li>
-                            <li><a href="#requesting-sin-from-employee">Requesting a SIN from an Employee</a></li>
-                            <li><a href="#sin-verification">Verifying a SIN</a></li>
-                            <li><a href="#technical-implementation">Technical Implementation</a></li>
-                            <li><a href="#how-it-works">How It Works</a></li>
-                            <li><a href="#css-requirements">CSS Requirements</a></li>
-                            <li><a href="#responsive-design">Responsive Design</a></li>
-                            <li><a href="#best-practices">Best Practices</a></li>
-                        </ul>
-                    </nav>
-                </aside>
-            </div>
+                <h2 id="best-practices">Best Practices</h2>
+                <p>
+                    When implementing a floating "On This Page" navigation, consider these guidelines:
+                </p>
+                <ul>
+                    <li><strong>Use clear, descriptive h2 headings:</strong> The navigation is only useful if headings accurately describe section content</li>
+                    <li><strong>Limit sections:</strong> Too many links make the navigation overwhelming; aim for 5-10 main sections</li>
+                    <li><strong>Consistent styling:</strong> Use your site's existing design system to maintain visual consistency</li>
+                    <li><strong>H2-only approach:</strong> Include only h2 headings to keep navigation focused and scannable</li>
+                    <li><strong>Accessibility:</strong> Use semantic HTML headings and proper link anchors</li>
+                    <li><strong>Visual feedback:</strong> Highlight the current section to help users orient themselves</li>
+                    <li><strong>Right-side flexibility:</strong> Position navigation where it doesn't conflict with other page elements like subway navigation</li>
+                </ul>
+            </main>
         </div>
     </div>
 
