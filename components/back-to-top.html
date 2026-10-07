@@ -98,92 +98,86 @@
         <!-- Hero Section -->
         <div class="hero-section">
             <h1 class="mb-3">📌 Back to Top Button</h1>
-            <p class="lead mb-0">HTML5 + CSS-only sticky "back to top" button that floats on the right side</p>
+            <p class="lead mb-0">A sticky "back to top" button that floats on the right side of long-form content pages</p>
         </div>
 
         <!-- Content Sections -->
         <div class="content-section">
-            <h2>Section 1: Introduction</h2>
+            <h2>Overview</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure 
-                dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                This component demonstrates a modern approach to improving user experience on pages with lengthy content. The back-to-top button provides a convenient way for users to quickly return to the beginning of a page without having to manually scroll through all the content. This is particularly useful on mobile devices and tablets where scrolling long distances can be cumbersome.
             </p>
             <p>
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis 
-                unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
-                veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                The implementation uses pure HTML5 and CSS, leveraging native anchor link functionality without requiring any JavaScript. This approach ensures compatibility across all modern browsers while maintaining the principles of progressive enhancement—older browsers simply won't display the button, but the page remains fully functional.
             </p>
         </div>
 
         <div class="content-section">
-            <h2>Section 2: Features & Benefits</h2>
+            <h2>Key Features</h2>
             <p>
-                Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione 
-                voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia 
-                non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.
+                <strong>Zero JavaScript Dependency:</strong> This component uses only HTML5 anchor links and CSS positioning. There's no JavaScript to load, execute, or maintain, which reduces page weight and complexity. This is especially valuable in CMS environments like Adobe Experience Manager (AEM) where introducing scripts can be problematic.
             </p>
             <p>
-                Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut quid ex ea commodi consequatur. 
-                Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum 
-                fugiat quo voluptas nulla pariatur.
-            </p>
-        </div>
-
-        <div class="content-section">
-            <h2>Section 3: Deep Dive</h2>
-            <p>
-                At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos 
-                dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia 
-                animi, id est laborum et dolorum fuga.
+                <strong>Sticky Positioning:</strong> The button remains fixed at the bottom-right corner of the viewport as users scroll down the page. The smooth transitions and hover effects provide visual feedback without requiring any scripting. The positioning automatically adjusts for mobile devices, ensuring the button doesn't interfere with content or navigation elements.
             </p>
             <p>
-                Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil 
-                impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem 
-                quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non 
-                recusandae itaque earum.
+                <strong>Accessibility:</strong> The component includes proper ARIA labels and title attributes, making it accessible to screen readers and keyboard navigation. The button uses semantic anchor elements with meaningful href attributes, maintaining accessibility standards without relying on click handlers.
             </p>
         </div>
 
         <div class="content-section">
-            <h2>Section 4: Implementation Details</h2>
+            <h2>Technical Implementation</h2>
             <p>
-                Rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur 
-                a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat. 
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                The implementation centers around a simple HTML5 anchor element with an id at the top of the page. When users click the floating button, the browser's native anchor linking mechanism smoothly navigates back to that point. The CSS handles all visual presentation, including the fixed positioning, circular appearance, and hover effects.
             </p>
             <p>
-                Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim 
-                ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem 
-                sequi nesciunt.
-            </p>
-        </div>
-
-        <div class="content-section">
-            <h2>Section 5: Best Practices</h2>
-            <p>
-                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi 
-                tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem 
-                ullam corporis suscipit laboriosam, nisi ut quid ex ea commodi consequatur.
+                The button uses a fixed position property with bottom and right values to maintain its position relative to the viewport. Modern CSS includes a transition property for smooth animations when users hover over the button. The color scheme leverages Bootstrap's primary color for consistency with the overall design system.
             </p>
             <p>
-                Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum 
-                fugiat quo voluptas nulla pariatur. At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium 
-                voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.
+                For responsive design, media queries adjust the button's size and positioning on smaller screens. This ensures the button remains usable and aesthetically appropriate on mobile devices without taking up excessive screen real estate or obscuring important content.
             </p>
         </div>
 
         <div class="content-section">
-            <h2>Section 6: Conclusion</h2>
+            <h2>Best Practices</h2>
             <p>
-                Similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est 
-                et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime 
-                placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.
+                When implementing this component, it's important to position the button where it won't interfere with other interactive elements or fixed navigation. Testing across various devices and browsers ensures that the button behaves consistently. The circular button shape provides good affordance—users intuitively understand it's clickable.
             </p>
             <p>
-                Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et 
-                molestiae non recusandae itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias 
-                consequatur aut perferendis doloribus asperiores repellat.
+                Color contrast is crucial for accessibility. The default blue background with white text provides sufficient contrast for users with visual impairments. The hover state uses a darker shade, providing clear visual feedback for interaction. Avoid using colors that blend into the background or create a confusing appearance.
+            </p>
+            <p>
+                Consider the overall page layout when placing the button. On pages with sidebars or other right-side content, you may need to adjust the button's position. The component should enhance the user experience without feeling intrusive or competing for attention with primary content.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Use Cases</h2>
+            <p>
+                This component is ideal for documentation pages, long-form articles, knowledge base entries, and any content-heavy pages where users need to navigate substantial amounts of information. It's particularly valuable in CMS environments where content editors create lengthy pages that users will need to navigate efficiently.
+            </p>
+            <p>
+                The no-JavaScript approach makes it perfect for organizations with strict content security policies or those using AEM and similar platforms where script implementation is discouraged. It works equally well on marketing pages, blog posts, and enterprise applications where user experience and page performance are priorities.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Browser Support</h2>
+            <p>
+                This component uses standard HTML5 and CSS3 features that are supported in all modern browsers, including Chrome, Firefox, Safari, and Edge. The fixed positioning property has been supported for decades, and CSS transitions are widely available. Progressive enhancement means that older browsers simply won't display the animated button, but the page and its content remain fully accessible.
+            </p>
+            <p>
+                The component gracefully degrades in older browser environments. Users on legacy browsers can still scroll the page and access all content normally—they simply won't benefit from the convenience of the back-to-top button. This approach aligns with modern web development practices and ensures your website remains accessible to the widest possible audience.
+            </p>
+        </div>
+
+        <div class="content-section">
+            <h2>Performance Considerations</h2>
+            <p>
+                Because this implementation uses only HTML and CSS, there are minimal performance implications. No JavaScript execution means faster page load times and reduced CPU usage. The fixed positioning is handled efficiently by the browser's rendering engine, and CSS transitions use GPU acceleration on most modern devices.
+            </p>
+            <p>
+                The component adds negligible overhead to page size—just a few lines of HTML and CSS. This makes it an excellent choice for performance-conscious organizations working within CMS constraints. Combined with other performance optimization techniques, this lightweight approach contributes to better Core Web Vitals scores and improved user satisfaction.
             </p>
         </div>
     </div>
