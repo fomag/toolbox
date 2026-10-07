@@ -8,6 +8,7 @@
     <style>
         body {
             background-color: #f8f9fa;
+            line-height: 1.8;
         }
 
         .hero-section {
@@ -37,27 +38,12 @@
             transition: all 0.3s ease;
         }
 
-        /* Only show button when not at the top of the page */
-        .back-to-top:target,
-        .back-to-top:target:hover {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Initially hidden for modern browsers using :target selector behavior */
-        html:not(:has(#page-top:target)) .back-to-top {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Hover effect */
         .back-to-top:hover {
             background-color: #0b5ed7;
             transform: translateY(-4px);
             box-shadow: 0 6px 16px rgba(13, 110, 253, 0.4);
         }
 
-        /* Responsive adjustment */
         @media (max-width: 576px) {
             .back-to-top {
                 bottom: 30px;
@@ -68,25 +54,63 @@
             }
         }
 
-        /* Content styling */
-        .content-section {
+        /* Main content wrapper */
+        .content-wrapper {
             background: white;
-            padding: 40px;
-            margin-bottom: 30px;
+            padding: 50px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            max-width: 900px;
+            margin: 0 auto;
         }
 
-        .content-section h2 {
+        /* Typography */
+        h2 {
+            color: #212529;
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        h2:first-child {
             margin-top: 0;
-            color: #0d6efd;
-            border-bottom: 3px solid #0d6efd;
-            padding-bottom: 15px;
         }
 
-        .content-section p {
-            line-height: 1.8;
+        p {
             color: #495057;
+            margin-bottom: 18px;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Section divider */
+        .content-divider {
+            height: 1px;
+            background: linear-gradient(to right, transparent, #e9ecef, transparent);
+            margin: 40px 0;
+            border: none;
+        }
+
+        /* Inline emphasis styles */
+        strong {
+            color: #212529;
+            font-weight: 600;
+        }
+
+        a {
+            color: #0d6efd;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        a:hover {
+            border-bottom-color: #0d6efd;
         }
     </style>
 </head>
@@ -101,8 +125,8 @@
             <p class="lead mb-0">A sticky "back to top" button that floats on the right side of long-form content pages</p>
         </div>
 
-        <!-- Content Sections -->
-        <div class="content-section">
+        <!-- Main Content -->
+        <div class="content-wrapper">
             <h2>Overview</h2>
             <p>
                 This component demonstrates a modern approach to improving user experience on pages with lengthy content. The back-to-top button provides a convenient way for users to quickly return to the beginning of a page without having to manually scroll through all the content. This is particularly useful on mobile devices and tablets where scrolling long distances can be cumbersome.
@@ -110,9 +134,9 @@
             <p>
                 The implementation uses pure HTML5 and CSS, leveraging native anchor link functionality without requiring any JavaScript. This approach ensures compatibility across all modern browsers while maintaining the principles of progressive enhancement—older browsers simply won't display the button, but the page remains fully functional.
             </p>
-        </div>
 
-        <div class="content-section">
+            <hr class="content-divider">
+
             <h2>Key Features</h2>
             <p>
                 <strong>Zero JavaScript Dependency:</strong> This component uses only HTML5 anchor links and CSS positioning. There's no JavaScript to load, execute, or maintain, which reduces page weight and complexity. This is especially valuable in CMS environments like Adobe Experience Manager (AEM) where introducing scripts can be problematic.
@@ -123,9 +147,9 @@
             <p>
                 <strong>Accessibility:</strong> The component includes proper ARIA labels and title attributes, making it accessible to screen readers and keyboard navigation. The button uses semantic anchor elements with meaningful href attributes, maintaining accessibility standards without relying on click handlers.
             </p>
-        </div>
 
-        <div class="content-section">
+            <hr class="content-divider">
+
             <h2>Technical Implementation</h2>
             <p>
                 The implementation centers around a simple HTML5 anchor element with an id at the top of the page. When users click the floating button, the browser's native anchor linking mechanism smoothly navigates back to that point. The CSS handles all visual presentation, including the fixed positioning, circular appearance, and hover effects.
@@ -136,9 +160,9 @@
             <p>
                 For responsive design, media queries adjust the button's size and positioning on smaller screens. This ensures the button remains usable and aesthetically appropriate on mobile devices without taking up excessive screen real estate or obscuring important content.
             </p>
-        </div>
 
-        <div class="content-section">
+            <hr class="content-divider">
+
             <h2>Best Practices</h2>
             <p>
                 When implementing this component, it's important to position the button where it won't interfere with other interactive elements or fixed navigation. Testing across various devices and browsers ensures that the button behaves consistently. The circular button shape provides good affordance—users intuitively understand it's clickable.
@@ -149,9 +173,9 @@
             <p>
                 Consider the overall page layout when placing the button. On pages with sidebars or other right-side content, you may need to adjust the button's position. The component should enhance the user experience without feeling intrusive or competing for attention with primary content.
             </p>
-        </div>
 
-        <div class="content-section">
+            <hr class="content-divider">
+
             <h2>Use Cases</h2>
             <p>
                 This component is ideal for documentation pages, long-form articles, knowledge base entries, and any content-heavy pages where users need to navigate substantial amounts of information. It's particularly valuable in CMS environments where content editors create lengthy pages that users will need to navigate efficiently.
@@ -159,9 +183,9 @@
             <p>
                 The no-JavaScript approach makes it perfect for organizations with strict content security policies or those using AEM and similar platforms where script implementation is discouraged. It works equally well on marketing pages, blog posts, and enterprise applications where user experience and page performance are priorities.
             </p>
-        </div>
 
-        <div class="content-section">
+            <hr class="content-divider">
+
             <h2>Browser Support</h2>
             <p>
                 This component uses standard HTML5 and CSS3 features that are supported in all modern browsers, including Chrome, Firefox, Safari, and Edge. The fixed positioning property has been supported for decades, and CSS transitions are widely available. Progressive enhancement means that older browsers simply won't display the animated button, but the page and its content remain fully accessible.
@@ -169,9 +193,9 @@
             <p>
                 The component gracefully degrades in older browser environments. Users on legacy browsers can still scroll the page and access all content normally—they simply won't benefit from the convenience of the back-to-top button. This approach aligns with modern web development practices and ensures your website remains accessible to the widest possible audience.
             </p>
-        </div>
 
-        <div class="content-section">
+            <hr class="content-divider">
+
             <h2>Performance Considerations</h2>
             <p>
                 Because this implementation uses only HTML and CSS, there are minimal performance implications. No JavaScript execution means faster page load times and reduced CPU usage. The fixed positioning is handled efficiently by the browser's rendering engine, and CSS transitions use GPU acceleration on most modern devices.
